@@ -47,4 +47,7 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+    public function symptoms(){
+        return $this->hasMany(Symptom::class);
+    }
 }
