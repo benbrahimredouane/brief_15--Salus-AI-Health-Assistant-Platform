@@ -15,18 +15,15 @@ class SymptomController extends Controller
      */
     public function index(Request $request)
     {
-        //
-        $symptoms = $request->symptoms()->latest()->get();
+
+        $symptoms = $request->user()->symptoms()->latest()->get();
 
         return response()->json([
-
             'success' => true,
             'data' => [
                 'symptoms' => $symptoms
             ],
-
-            'message' => 'symptoms retrieved successfully!!',
-
+            'message' => 'Symptoms retrieved successfully!!',
         ], 200);
     }
 
@@ -94,18 +91,17 @@ class SymptomController extends Controller
      */
     public function destroy(Symptom $symptom)
     {
-       
-        Gate::authorize('destroy',$symptom);
+
+        Gate::authorize('destroy', $symptom);
 
         $symptom->delete();
 
         return response()->json([
-            'success'=>true,
+            'success' => true,
 
-             'data'=> null,
+            'data' => null,
 
-             'message'=>'symptom destroyed with success!',
-        ],200);
-
+            'message' => 'symptom destroyed with success!',
+        ], 200);
     }
 }
