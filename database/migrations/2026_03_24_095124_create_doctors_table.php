@@ -15,8 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('specialty');
-            $table->integer('available_days');
+            $table->string('city');
+            $table->integer('yearsofexperience');
             $table->integer('consultation_price');
+            $table->string('available_days');
             $table->timestamps();
         });
     }
