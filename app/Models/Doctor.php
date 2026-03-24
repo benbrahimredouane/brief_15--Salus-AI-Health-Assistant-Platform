@@ -11,6 +11,7 @@ class Doctor extends Model
         'name',
         'specialty',
         'city',
+        'yearsofexperience',
         'consultation_price',
         'available_days',
     ];
