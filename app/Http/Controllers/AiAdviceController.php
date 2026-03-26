@@ -84,4 +84,22 @@ class AiAdviceController extends Controller
             'message' => 'advice retrive avec sucess!',
         ], 200);
     }
+
+
+    
+    public function history()
+    {
+        $user =  Auth::user();
+
+        $advice = $user->aiAdvices()->latest()->pagination(10);
+
+        return response()->json([
+
+            'success' => true,
+            'data' => [
+                'advice' => $advice
+            ],
+            'message' => 'voila ton history',
+        ], 200);
+    }
 }
